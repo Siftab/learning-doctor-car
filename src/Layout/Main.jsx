@@ -10,7 +10,7 @@ const Main = () => {
         <div className='max-w-6xl mx-auto'> 
             <NavBar></NavBar>
             <Outlet></Outlet>
-            <Services></Services>
+            
             <Footer></Footer>
             
         </div>
