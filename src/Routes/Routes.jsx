@@ -23,6 +23,12 @@ import SignUp from "../Pages/SignUp";
         {
           path:'/signUp',
           element:<SignUp></SignUp>
+        },
+        {
+          path:'/checkOut/:id',
+          element:<div>this is checkOut div</div>
+          ,loader: ({params})=>fetch(`http://localhost:5000/services/${params.id}`)
+         ,
         }
 
       ]
