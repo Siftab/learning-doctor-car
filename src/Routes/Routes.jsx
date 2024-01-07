@@ -7,6 +7,7 @@ import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import SignUp from "../Pages/SignUp";
 import CheckOut from "../components/CheckOut";
+import Booking from "../Pages/Booking";
 
   const router = createBrowserRouter([
     {
@@ -30,6 +31,10 @@ import CheckOut from "../components/CheckOut";
           element:<CheckOut></CheckOut>
           ,loader: ({params})=>fetch(`http://localhost:5000/services/${params.id}`)
          
+        },
+        {
+          path:'/bookings',
+          element:<Booking></Booking>
         }
 
       ]

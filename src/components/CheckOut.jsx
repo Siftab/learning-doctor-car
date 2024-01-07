@@ -3,8 +3,9 @@ import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from './Providers/Authprovider';
 
 const CheckOut = () => {
-    const {title,price}= useLoaderData();
+    const {title,price,img}= useLoaderData();
     const {user}=useContext(AuthContext);
+ 
     // console.log(user)
     // const {email,displayName}=user;
     const handleSubmit=e=>{
@@ -15,7 +16,7 @@ const CheckOut = () => {
         const email=form.email.value
         const price=form.price.value
         const note=form.note.value
-       const order={UserName:name,date,price,email,note}
+       const order={UserName:name,date,price,email,note,img}
        console.log(order)
        fetch('http://localhost:5000/bookings'
        ,{
@@ -28,7 +29,7 @@ const CheckOut = () => {
        })
        .then(res=>res.json())
        .then(data=>console.log(data))
-       form.reset();
+    //    form.reset();
     }
 
     return (
