@@ -12,6 +12,7 @@ const Booking = () => {
         .then(data=> setBookings(data))
 
     },[url])
+    console.log(user)
 
     return (
         <div>

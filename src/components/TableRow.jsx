@@ -14,7 +14,7 @@ const {UserName,date,price,img}=props;
           <div className="flex items-center gap-3">
             <div className="avatar">
               <div className="w-24 h-24">
-                <img src={img} alt="Avatar Tailwind CSS Component" />
+               {img &&  <img src={img} alt="Avatar Tailwind CSS Component" />}
               </div>
             </div>
            
