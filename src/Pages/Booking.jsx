@@ -13,6 +13,24 @@ const Booking = () => {
 
     },[url])
     console.log(user)
+    const handleDelete=id=>{
+      const proceed =confirm(`sure delete${id}`)
+      if(proceed){
+       console.log('working')
+       fetch(`http://localhost:5000/bookings/${id}`,{
+         method:"DELETE"
+       })
+       .then(res=>res.json())
+       .then(data=> {
+         console.log(data)
+       if(data?.deletedCount>0){
+        const remainings = bookings.filter(booking=> booking._id !==id)
+        setBookings(remainings)
+       }
+       })
+      }
+   
+     }
 
     return (
         <div>
@@ -36,7 +54,7 @@ const Booking = () => {
     <tbody>
       {/* row 1 */}
      {
-        bookings.map((booking,idx)=><TableRow key={idx} props={booking}></TableRow>)
+        bookings.map((booking,idx)=><TableRow key={idx} props={booking} handleDelete={handleDelete}></TableRow>)
      }
      
     </tbody>
