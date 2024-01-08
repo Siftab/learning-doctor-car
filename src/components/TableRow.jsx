@@ -1,8 +1,8 @@
 import React from 'react';
 
-const TableRow = ({ props,handleDelete }) => {
+const TableRow = ({ props,handleDelete,handleConfirm }) => {
   console.log(props)
-  const { UserName, date, price, img,_id } = props;
+  const { UserName, price, img,_id ,status} = props;
 
   return (
     <tr>
@@ -27,8 +27,8 @@ const TableRow = ({ props,handleDelete }) => {
         <span className="badge badge-ghost badge-sm">{UserName}</span>
       </td>
       <td>{price}</td>
-      <th>
-        <button className="btn btn-ghost btn-xs">details</button>
+      <th>{status?<button className='btn'>Confirmed</button>:
+        <button className="btn btn-ghost btn-xs" onClick={()=>handleConfirm(_id)}>confirm</button>}
       </th>
     </tr>
   );
