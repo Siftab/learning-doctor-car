@@ -19,7 +19,7 @@ const Services = () => {
          </div>
          <div>
             <p>
-                services{services.length}
+                services{services.length} </p>
                 <div className='grid grid-cols-1 md:grid-cols-3 gap-10 my-10'>
                 {
                     services.map(service=><ServicesCard
@@ -27,7 +27,7 @@ const Services = () => {
                     props={service}></ServicesCard>)
                 }
                 </div>
-            </p>
+           
          </div>
         </div>
     );

@@ -29,7 +29,7 @@ import PrivateRoutes from "./PrivateRoutes";
         },
         {
           path:'/checkOut/:id',
-          element:<CheckOut></CheckOut>
+          element:<PrivateRoutes><CheckOut></CheckOut></PrivateRoutes>
           ,loader: ({params})=>fetch(`http://localhost:5000/services/${params.id}`)
          
         },
