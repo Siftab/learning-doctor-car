@@ -6,7 +6,7 @@ import Services from '../components/Services';
 
 
 const Main = () => {
-    console.log(document.querySelectorAll(" p * div "))
+  
     return (
         <div className='max-w-6xl mx-auto'> 
             <NavBar></NavBar>
