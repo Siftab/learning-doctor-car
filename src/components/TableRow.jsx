@@ -1,7 +1,7 @@
 import React from 'react';
 
 const TableRow = ({ props,handleDelete,handleConfirm }) => {
-  console.log(props)
+  // console.log(props)
   const { UserName, price, img,_id ,status} = props;
 
   return (

@@ -1,16 +1,20 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../components/Providers/Authprovider';
 import TableRow from '../components/TableRow';
+import axios from 'axios';
 
 const Booking = () => {
     const {user}=useContext(AuthContext);
     const [bookings,setBookings]=useState([]);
     const url =`http://localhost:5000/bookings?email=${user?.email}`
     useEffect(()=>{
-        fetch(url)
-        .then(res=>res.json())
-        .then(data=> setBookings(data))
-
+        // fetch(url)
+        // .then(res=>res.json())
+        // .then(data=> setBookings(data))
+        axios.get(url,{withCredentials:true})
+        .then(res=>{ setBookings(res.data)
+        })
+        .catch(err=>console.log(err))
     },[url])
     console.log(user)
     const handleDelete=id=>{
@@ -74,7 +78,7 @@ const Booking = () => {
     <tbody>
       {/* row 1 */}
      {
-        bookings.map((booking,idx)=><TableRow key={idx} props={booking} handleDelete={handleDelete} handleConfirm={handleConfirm}></TableRow>)
+        bookings?.map((booking,idx)=><TableRow key={idx} props={booking} handleDelete={handleDelete} handleConfirm={handleConfirm}></TableRow>)
      }
      
     </tbody>
